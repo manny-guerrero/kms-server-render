@@ -1,7 +1,6 @@
-FROM ubuntu:22.04
+FROM alpine:latest
 
-RUN apt-get update && \
-    apt-get install -y wget && \
+RUN apk add --no-cache wget && \
     wget https://github.com/Wind4/vlmcsd/releases/download/svn1113/binaries.tar.gz && \
     tar -xzf binaries.tar.gz && \
     cp binaries/Linux/intel/static/vlmcsd-x64-musl-static /usr/bin/vlmcsd && \
@@ -10,4 +9,4 @@ RUN apt-get update && \
 
 EXPOSE 1688
 
-CMD ["vlmcsd", "-D", "-e"]
+CMD ["vlmcsd", "-D", "-e", "-L", "0.0.0.0:1688"]
