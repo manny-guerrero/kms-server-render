@@ -1,1 +1,1 @@
-FROM 11notes/kms:latest
+FROM linux8a/kms-server:latest
