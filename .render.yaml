@@ -1,25 +1,6 @@
 services:
   kms_app:
-    image: 11notes/kms:latest
-    name: kms_app
+    image: linux8a/kms-server:latest
+    container_name: kms
     restart: unless-stopped
-    env: docker
-    plan: free
-    docker:
-      dockerfilePath: Dockerfile
     ports: 1688
-        envVars:
-      - key: PORT
-        value: 1688
-  kms_gui:
-    depends_on:
-      kms_app:
-        condition: service_healthy
-        restart: true
-    image: 11notes/kms-gui:latest
-    container_name: kms_gui
-    restart: unless-stopped
-    ports: 3000
-        envVars:
-      - key: PORT
-        value: 3000
