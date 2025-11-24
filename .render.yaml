@@ -1,6 +1,11 @@
 services:
-  kms_app:
-    image: linux8a/kms-server:latest
-    container_name: kms
-    restart: unless-stopped
-    ports: 1688
+  - type: web
+    name: kms-server
+    env: docker
+    plan: free
+    docker:
+      dockerfilePath: Dockerfile
+    port: 1688
+    envVars:
+      - key: PORT
+        value: 1688
