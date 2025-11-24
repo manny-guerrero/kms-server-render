@@ -1,1 +1,1 @@
-FROM mikolatero/vlmcsd:latest
+FROM 11notes/kms:latest
